@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'homecare', component: HomecaresComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'adopt', component: AdoptComponent },
-  { path: '**', component: HomeComponent }
+ // { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>{{title}}</h1>
+
+
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="nav-item nav-link" [routerLinkActive]="['active']" [routerLink]="['list']">List</a>
+                <a class="nav-item nav-link" [routerLinkActive]="['active']" [routerLink]="['add']">Add</a>
+                <a class="nav-item nav-link" [routerLinkActive]="['active']" [routerLink]="['informacion']">Informacion</a>
+            </div>
+        </div>
+        <hr>
+
+
+        <router-outlet></router-outlet>

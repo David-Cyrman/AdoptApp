@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 //modulos agregados
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -18,6 +17,9 @@ import { UsersComponent } from './components/users/users.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AdoptComponent } from './components/adopt/adopt.component';
 
+//importar nuestro nuevo modulo 
+import { ModuloEmailModule } from './email-modules/moduloemail.module';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,10 @@ import { AdoptComponent } from './components/adopt/adopt.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+
+    ModuloEmailModule,
+    AdminModule //se carga los modulos creados x nosotros
   ],
   providers: [],
   bootstrap: [AppComponent]
