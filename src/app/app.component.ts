@@ -1,9 +1,9 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { UserService } from './Services/user.service';
 import { Router } from '@angular/router';
-//import { last } from '@angular/router/src/utils/collection';
+// import { last } from '@angular/router/src/utils/collection';
 
-import {GLOBAL} from './Services/global';
+import { GLOBAL } from './Services/global';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +15,13 @@ import {GLOBAL} from './Services/global';
 export class AppComponent implements OnInit, DoCheck {
   public title: string;
   public identity;
-  //public token; 
-  public url:string;
+  // public token
+  public url: string;
 
   constructor(private _userService: UserService, private _router: Router) {
 
     this.title = 'AdoptApp';
-    this.url = GLOBAL.url
+    this.url = GLOBAL.url;
 
   }
 

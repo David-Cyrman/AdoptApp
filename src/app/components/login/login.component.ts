@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _userService: UserService) {
 
-    this.title = "Login";
+    this.title = 'Login';
     this.user = new User('', '', '', '', '', 'ROLE_USER', '');
 
   }
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    //console.log(this.user);
+    // console.log(this.user);
     // log al usuario y conseguir el objeto
 
     this._userService.signup(this.user).subscribe(
@@ -45,26 +45,26 @@ export class LoginComponent implements OnInit {
         if (!this.identity || !this.identity._id) {
           alert('El usuario no inicio session correctamente');
         } else {
-          //Mostrar identity
+          // Mostrar identity
           this.identity.Password = '';
-          //console.log(this.identity);
+          // console.log(this.identity);
           localStorage.setItem('identity', JSON.stringify(this.identity));
 
 
 
-          //conseguir el token
+          // conseguir el token
           this._userService.signup(this.user, true).subscribe(
 
-            response => {
-              this.token = response.token;
+            Response => {
+              this.token = Response.token;
 
               if (this.token.lenght <= 0) {
                 alert('El token no se ha generado');
               } else {
-                //mostrar token
-                //console.log(this.token);
+                // mostrar token
+                // console.log(this.token);
                 localStorage.setItem('token', this.token);
-                this.status = "Success";
+                this.status = 'Success';
 
                 this._router.navigate(['/']);
               }
@@ -77,10 +77,10 @@ export class LoginComponent implements OnInit {
         }
       },
       error => {
-        var errorMessage = <any>error;
+        const errorMessage = <any>error;
 
         if (errorMessage != null) {
-          var body = JSON.parse(error._body);
+          const body = JSON.parse(error._body);
           this.status = 'Error';
         }
       }
