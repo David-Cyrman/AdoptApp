@@ -1,0 +1,56 @@
+<div class="col-lg-6">
+
+  <h1>{{title}}</h1>
+
+  <div class="alert alert-success" *ngIf="status == 'Success'">
+    La informacion fue actualizada exitosamente!
+  </div>
+
+  <div class="alert alert-danger" *ngIf="status == 'Error'">
+    No se actualizaron los datos exitosamente!
+  </div>
+
+  <form class="col-lg-10" #userEditForm="ngForm" (ngSubmit)="onSubmit()">
+
+
+    <p>
+      <label>Nombre</label>
+      <input type="text" name="Name" #Name="ngModel" [(ngModel)]="user.Name" class="form-control" required />
+      <span *ngIf="!Name.valid && Name.touched">
+        * El nombre es obligatorio
+      </span>
+    </p>
+
+    <p>
+      <label>Apellido</label>
+      <input type="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.LastName" class="form-control" required/>
+      <span *ngIf="!LastName.valid && LastName.touched">
+        * El email es obligatorio
+      </span>
+    </p>
+
+    <p>
+      <label>Email</label>
+      <input type="email" name="Email" #Email="ngModel" [(ngModel)]="user.Email" class="form-control" required />
+      <span *ngIf="!Email.valid && Email.touched">
+        * El email es obligatorio
+      </span>
+    </p>
+
+    <p>
+      <label>Imagen</label>
+      <br>
+      <input type="file" placeholder="Subir imagen" (change)="fileChangeEvent($event)" />
+    </p>
+
+    <div class="image_for_edit" *ngIf="user.Image && user.Image != 'null'">
+      <p>Imagen de perfil:</p>
+      <img src="{{url + 'getImageFile/' + user.Image}}" />
+    </div>
+    <br>
+
+
+    <input type="submit" class="btn btn-success" value="{{title}}" [disabled]="!userEditForm.form.valid" />
+  </form>
+
+</div>

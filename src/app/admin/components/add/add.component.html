@@ -1,24 +1,45 @@
 <div class="col-10">
     <h1>{{title}}</h1>
 
-    <form>
+    <div class="alert alert-success" *ngIf="status == 'Success'">
+        Se creo la mascota correctamente.
+    </div>
+
+    <div class="alert alert-danger" *ngIf="status == 'Error'">
+        No se pudo crear la mascota
+    </div>
+
+    <form #animalCreateForm="ngForm" (ngSubmit)="onSubmit()">
+        <p>
+            <label>Nombre</label>
+            <input type="text" name="Name" #Name="ngModel" [(ngModel)]="animal.Name" class="form-control" required />
+            <span *ngIf="!Name.valid && Name.touched">
+                * El nombre es obligatorio
+            </span>
+        </p>
 
         <p>
-            <label>Name</label>
-            <input type="text" class="form-control" />
+            <label>Descripcion</label>
+            <textarea name="Description" #Description="ngModel" [(ngModel)]="animal.Description" class="form-control"></textarea>
         </p>
-        <hr>
-        <p>
-            <label>Description</label>
-            <input type="text" class="form-control" />
-        </p>
-        <hr>
-        <p>
-            <label>Age</label>
-            <input type="text" class="form-control" />
-        </p>
-        <hr>
-        <input type="submit" value="Create new" class="btn btn-success" />
 
+        <p>
+            <label>Año</label>
+            <input type="number" name="Year" #Year="ngModel" [(ngModel)]="animal.Year" class="form-control" />
+        </p>
+
+        <p>
+            <label>Subir la imagen de la mascota</label>
+            <br>
+            <input type="file" placeholder="Subir imagen" (change)="fileChangeEvent($event)" />
+        </p>
+
+        <div class="image_for_edit" *ngIf="animal.Image && animal.Image != 'null'">
+            <p>Imagen de perfil:</p>
+            <img src="{{url + 'get-Image-Animal/' + animal.Image}}" />
+        </div>
+        <br>
+
+        <input type="submit" class="btn btn-success" value="{{title}}" [disabled]="!animalCreateForm.form.valid" />
     </form>
 </div>

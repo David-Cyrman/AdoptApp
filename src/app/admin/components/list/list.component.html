@@ -5,16 +5,18 @@
         <thead class="thead-default">
             <tr>
                 <th>Name</th>
-                <th>Age</th>
+                <th>Year</th>
+                <th>Adopt status</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let n of numbers; let i = index">
-                <td>{{ i + 1 }}) Nombre</td>
-                <td>2</td>
+            <tr *ngFor="let animal of animals">
+                <td>{{animal.Name}}</td>
+                <td>{{animal.Year}}</td>
+                <td>{{animal.Adopted}}</td>
                 <td>
-                    <button class="btn btn-sm btn-primary">View </button>
+                    <a class="btn btn-sm btn-primary" [routerLink]="['/animal', animal._id]" >Ver </a>
                     <button class="btn btn-sm btn-success">Edit </button>
                     <button class="btn btn-sm btn-danger">Delete </button>
 

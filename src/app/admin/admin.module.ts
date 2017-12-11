@@ -11,6 +11,11 @@ import { ListComponent } from './components/list/list.component';
 import { AddComponent } from './components/add/add.component';
 import { EditComponent } from './components/edit/edit.component';
 
+//Servicios
+import { AdminGuard } from '../Services/admin.guard';
+import { UserService } from '../Services/user.service';
+import { AnimalService } from '../Services/animal.service';
+import { uploadService } from '../Services/upload.service';
 
 @NgModule({
 
@@ -32,7 +37,12 @@ import { EditComponent } from './components/edit/edit.component';
         AddComponent,
         EditComponent
     ],
-    providers: []
+    providers: [
+        UserService,
+        AdminGuard,
+        AnimalService,
+        uploadService
+    ]
 })
 
 export class AdminModule { }

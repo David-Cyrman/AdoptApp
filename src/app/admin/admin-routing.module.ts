@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {AdminGuard} from '../Services/admin.guard';
 
 //componentes
-
 import { MainComponent } from './components/main/main.component';
 import { ListComponent } from './components/list/list.component';
 import { AddComponent } from './components/add/add.component';
@@ -12,6 +12,7 @@ const adminRoutes: Routes = [
     {
         path: 'admin-panel',
         component: MainComponent,
+        canActivate: [AdminGuard],
         children: [
             { path: '', redirectTo: 'list', pathMatch: 'full' },
             { path: 'list', component: ListComponent },

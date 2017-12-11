@@ -13,13 +13,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PetsComponent } from './components/pets/pets.component';
 import { HomecaresComponent } from './components/homecares/homecares.component';
-import { UsersComponent } from './components/users/users.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { AdoptComponent } from './components/adopt/adopt.component';
 
+//
+import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { AdminModule } from './admin/admin.module';
+import { AdminGuard } from './Services/admin.guard';
+import { AnimalDetailComponent } from './components/animal-detail/animal-detail.component';
 //importar nuestro nuevo modulo 
-import { ModuloEmailModule } from './email-modules/moduloemail.module';
-import {AdminModule} from './admin/admin.module';
+
+
 
 @NgModule({
   declarations: [
@@ -27,20 +31,20 @@ import {AdminModule} from './admin/admin.module';
     HomeComponent,
     PetsComponent,
     HomecaresComponent,
-    UsersComponent,
-    ContactComponent,
-    AdoptComponent
+    LoginComponent,
+    RegistroComponent,
+    UserEditComponent,
+    AnimalDetailComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule,
-
-    ModuloEmailModule,
     AdminModule //se carga los modulos creados x nosotros
   ],
-  providers: [],
+  providers: [AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

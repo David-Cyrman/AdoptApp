@@ -1,0 +1,19 @@
+<div class="animal-box" *ngIf="animal">
+
+  <div class="card">
+      <img class="card-img-top" src="{{url + 'get-Image-Animal/' + animal.Image}}" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title">{{animal.Name}}</h4>
+        <p class="card-text">{{animal.Description}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Año/Edad: {{animal.Year}}</li>
+        <li class="list-group-item">Albergue: {{animal.User.Name + ', ' + animal.User.LastName}}</li>
+        <li class="list-group-item">Adoptado: {{animal.Adopted}}</li>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+</div>

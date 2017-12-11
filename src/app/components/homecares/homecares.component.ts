@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomecaresComponent implements OnInit {
 
-  title= "Home Cares";
+  title= "Albergues";
   constructor() { }
 
   ngOnInit() {

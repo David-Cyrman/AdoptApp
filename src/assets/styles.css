@@ -12,3 +12,29 @@ body{
 .navbar-nav .active{
     border-bottom: 3px solid green;
 }
+
+li{
+    cursor: pointer;
+}
+
+.image_for_edit img{
+    width:30%;
+}
+
+.avatar{
+    width: 35px;
+    height: 35px;
+    border-radius: 700px;
+    overflow: hidden;
+   
+}
+
+.avatar img{
+    width: 45px;
+}
+
+#PruebaStyle{
+ text-align: right;
+
+}
+
